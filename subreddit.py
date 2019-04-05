@@ -18,3 +18,6 @@ def get_posts(subreddit_name):
             num_stickied += 1
     dict = reddit.subreddit(subreddit_name).hot(limit=num_posts + num_stickied)
     for x in dict:
+        if not x.stickied:
+            post_list.append(x)
+    return post_list

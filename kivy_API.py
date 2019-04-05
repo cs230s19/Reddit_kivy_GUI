@@ -15,7 +15,7 @@ class SubredditScreen(Screen):
 
     def get_subreddit_posts(self):
         title_string = ""
-        dict = get_posts('jokes')
+        dict = get_posts(self.ids.subreddit_input.text)
         for title in dict:
             title_string += (title.title + '\n')
 

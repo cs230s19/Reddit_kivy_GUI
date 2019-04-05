@@ -28,17 +28,19 @@ ScreenManagement:
     name: 'Subreddit'
     BoxLayout:
         orientation: 'vertical'
-        Label:
-            id: sub_output
-            text: "Subreddit"
-            size_hint_y: None
-            size: self.texture_size
-            text_size: self.width, None
-            height: self.texture_size[1]
+        ScrollView:
+            size_hint_y: 15
+            Label:
+                id: sub_output
+                text: "Subreddit"
+                size_hint_y: None
+                size: self.texture_size
+                text_size: self.width, None
+                height: self.texture_size[1]
         TextInput:
             id: subreddit_input
             hint_text: "Enter a subreddit"
-            size_hint_y: 3
+            size_hint_y: 1
         Button:
             id: submit
             text: "Search"
@@ -47,7 +49,7 @@ ScreenManagement:
             on_release: app.root.current = 'main'
             text: 'back to the home screen'
             font_size: 20
-            size_hint_y: 5
+            size_hint_y: 3
 
 
 <UsernameScreen>:
