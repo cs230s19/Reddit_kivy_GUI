@@ -33,13 +33,26 @@ ScreenManagement:
     BoxLayout:
         orientation: 'vertical'
         Label:
-            id: message_board
+            id: sub_output
+            text: "Subreddit"
+            size_hint_y: None
+            size: self.texture_size
+            text_size: self.width, None
             height: self.texture_size[1]
-            text: 'Subreddit page'
+        TextInput:
+            id: subreddit_input
+            hint_text: "Enter a subreddit"
+            size_hint_y: 3
+        Button:
+            id: submit
+            text: "Search"
+            on_release: root.get_subreddit_posts()
         Button:
             on_release: app.root.current = 'main'
             text: 'back to the home screen'
-            font_size: 50
+            font_size: 20
+            size_hint_y: 5
+
 
 <UsernameScreen>:
     name: 'Username'
