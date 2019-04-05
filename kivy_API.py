@@ -16,11 +16,14 @@ class SubredditScreen(Screen):
 
     def get_subreddit_posts(self):
         title_string = ""
-        dict = get_posts('jokes')
-        for title in dict:
-            title_string += (title.title + '\n')
+        dict = get_posts(self.ids.subreddit_input.text)
+        if dict is None:
+            self.ids.sub_output.text = "No Posts Found"
+        else:
+            for title in dict:
+                title_string += (title.title + '\n')
 
-        self.ids.sub_output.text = title_string
+            self.ids.sub_output.text = title_string
 
 
 class UsernameScreen(Screen):
