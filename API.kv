@@ -13,10 +13,6 @@ ScreenManagement:
             id: message_board
             height: self.texture_size[1]
             text: 'Refresh'
-        TextInput:
-	        id: input_text
-            size_hint_y: 0.2
-            hint_text: 'Enter a username or subreddit here.'
         BoxLayout:
             orientation: 'horizontal'
             Button:
@@ -59,10 +55,23 @@ ScreenManagement:
     BoxLayout:
         orientation: 'vertical'
         Label:
-            id: message_board
+            id: userprofile_output
             height: self.texture_size[1]
             text: 'Username page'
+            size_hint_y: None
+            size: self.texture_size
+            text_size: self.width, None
+            height: self.texture_size[1]
+        TextInput:
+            id: username_input
+            hint_text: "Enter a username"
+            size_hint_y: 3
+        Button:
+            id: submit
+            text: "Search"
+            on_release: root.get_userprofile()
         Button:
             on_release: app.root.current = 'main'
             text: 'back to the home screen'
-            font_size: 50
+            font_size: 20
+            size_hint_y: 5

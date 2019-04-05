@@ -6,8 +6,14 @@ reddit = praw.Reddit(client_id='5gcyUe_9oxJjBQ',
                          user_agent='testapp',
                          username='progres5ion')
 
-redditusername = 'progres5ion'
-print(reddit.redditor(redditusername).link_karma)
-print(reddit.redditor(redditusername).name)
-print('\n')
 
+def get_redditor_info(redditusername):
+    redditor_link_karmar = str(reddit.redditor(redditusername).link_karma)
+    redditor_name = reddit.redditor(redditusername).name
+    redditor_comment_karma = str(reddit.redditor(redditusername).comment_karma)
+
+    redditor_profile = " "
+    redditor_profile += "Redditor Name: " + redditor_name + "\n Redditor Comment Karma: " + redditor_comment_karma +\
+                        "\n Link Karma: " + redditor_link_karmar
+
+    return redditor_profile
