@@ -1,5 +1,5 @@
 import praw
-
+from prawcore import exceptions
 reddit = praw.Reddit(client_id='bFbCvelvrdVuFA',
                      client_secret='HjJOdVpi_jERV4T8PhAmxwtEM6w',
                      password='CaramelApple',
@@ -13,9 +13,14 @@ def get_posts(subreddit_name):
     post_list = []
 
     hot_posts = reddit.subreddit(subreddit_name).hot(limit=num_posts)
-    for x in hot_posts:
-        if x.stickied:
-            num_stickied += 1
+
+    try:
+        for x in hot_posts:
+            if x.stickied:
+                num_stickied += 1
+    except exceptions.Redirect:
+        return None
+
     dict = reddit.subreddit(subreddit_name).hot(limit=num_posts + num_stickied)
     for x in dict:
         if not x.stickied:
