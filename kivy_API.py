@@ -10,17 +10,24 @@ class MainScreen(Screen):
 
 
 class SubredditScreen(Screen):
-    """takes whatever text is currently on the screen then gives it to the
 
+    """
+    Subreddit Screen
+    When the search button is pressed, the titles of the 5 hottest posts on that subreddit are displayed
+    If no posts are found, "No Posts Found" is printed instead
     """
 
     def get_subreddit_posts(self):
+        """
+        Sets the text of the label to a string containing the titles of the 5 hottest posts
+        :return: None
+        """
         title_string = ""
-        dict = get_posts(self.ids.subreddit_input.text)
-        if dict is None:
+        post_list = get_posts(self.ids.subreddit_input.text)
+        if post_list is None:
             self.ids.sub_output.text = "No Posts Found"
         else:
-            for title in dict:
+            for title in post_list:
                 title_string += (title.title + '\n')
 
             self.ids.sub_output.text = title_string
