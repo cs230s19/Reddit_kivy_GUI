@@ -9,10 +9,10 @@ class MainScreen(Screen):
     pass
 
 
-
-
 class SubredditScreen(Screen):
-    "takes whatever text is currently on the screen then goves it to the "
+    """takes whatever text is currently on the screen then gives it to the
+
+    """
 
     def get_subreddit_posts(self):
         title_string = ""
