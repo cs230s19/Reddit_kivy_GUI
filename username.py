@@ -1,9 +1,10 @@
 import praw
 
-reddit = praw.Reddit(client_id='5gcyUe_9oxJjBQ', client_secret='wDZk9NXJrUTUJqu4yh3q1y8P01g',
-                     password='VjGT4m5Uh7AQ',
-                     user_agent='testapp',
-                     username='progres5ion')
+reddit = praw.Reddit(client_id='bFbCvelvrdVuFA',
+                     client_secret='HjJOdVpi_jERV4T8PhAmxwtEM6w',
+                     password='CaramelApple',
+                     user_agent='testscript by /u/CS230_throwaway',
+                     username='CS230_throwaway')
 
 
 def get_redditor_info(redditusername):
