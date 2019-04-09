@@ -21,11 +21,11 @@ class SubredditScreen(Screen):
         :return: None
         """
         title_string = ""
-        dict = get_posts(self.ids.subreddit_input.text)
-        if dict is None:
+        post_list = get_posts(self.ids.subreddit_input.text)
+        if post_list is None:
             self.ids.sub_output.text = "No Posts Found"
         else:
-            for title in dict:
+            for title in post_list:
                 title_string += (title.title + '\n')
 
             self.ids.sub_output.text = title_string
