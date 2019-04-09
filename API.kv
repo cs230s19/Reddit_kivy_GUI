@@ -84,50 +84,26 @@ ScreenManagement:
 <UsernameScreen>:
     name: 'Username'
     BoxLayout:
-        orientation: 'horizontal'
-
-        BoxLayout:
-            orientation: 'vertical'
-
-            ScrollView:
-                size_hint_y: 15
-                id: username_post_scrollview
-                BoxLayout:
-                    id: username_button_row
-                    orientation: 'vertical'
-
-                    Button:
-                        id: user_post_1
-                        text: "hello"
-
-                    Button:
-                        id: user_post_2
-                        text: "hello"
-                    Button:
-                        id: user_post_3
-                        text: "hello"
-                    Button:
-                        id: user_post_4
-                        text: "hello"
-                    Button:
-                        id: user_post_5
-                        text: "hello"
-
-            TextInput:
-                id: username_input
-                hint_text: "Enter a subreddit"
-                size_hint_y: 3
-
-            Button:
-                id: username_submit
-                text: "Search"
-                on_press: root.get_links()
-
-
-            Button:
-                on_release:
-                    app.root.current = 'main'
-                    root.manager.transition.direction = "right"
-                text: 'back to the home screen'
-                font_size: 20
-                size_hint_y: 5
+        orientation: 'vertical'
+        Label:
+            id: userprofile_output
+            height: self.texture_size[1]
+            size_hint_y: 10
+            size: self.texture_size
+            text_size: self.width, None
+            height: self.texture_size[1]
+        TextInput:
+            id: username_input
+            hint_text: "Enter a username"
+            size_hint_y: 3
+        Button:
+            id: submit
+            text: "Search"
+            on_release: root.get_userprofile()
+        Button:
+            on_release:
+				app.root.current = 'main'
+				root.manager.transition.direction = "right"
+            text: 'back to the home screen'
+            font_size: 20
+            size_hint_y: 5
