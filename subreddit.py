@@ -1,5 +1,7 @@
 import praw
 from prawcore import exceptions
+
+"""reddit object uses account to get access to Reddit api"""
 reddit = praw.Reddit(client_id='bFbCvelvrdVuFA',
                      client_secret='HjJOdVpi_jERV4T8PhAmxwtEM6w',
                      password='CaramelApple',
@@ -8,6 +10,13 @@ reddit = praw.Reddit(client_id='bFbCvelvrdVuFA',
 
 
 def get_posts(subreddit_name):
+    """
+    Gets the top 5 hottest posts from given subreddit not including stidkied posts
+
+    :param subreddit_name: String from InputText containing name of subreddit
+    :return: List of 5 Submission objects representing the hottest posts on the subreddit - Does not include stickied
+        posts
+    """
     num_stickied = 0
     num_posts = 10
     post_list = []
