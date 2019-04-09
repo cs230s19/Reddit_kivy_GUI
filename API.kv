@@ -1,5 +1,4 @@
 ScreenManagement:
-    transition:
     MainScreen:
     SubredditScreen:
     UsernameScreen:
@@ -15,52 +14,120 @@ ScreenManagement:
             text: 'Refresh'
         BoxLayout:
             orientation: 'horizontal'
+
             Button:
-                on_release: app.root.current = 'Subreddit'
+                on_release:
+                    app.root.current = 'Subreddit'
+                    root.manager.transition.direction = "right"
                 text: 'Subreddit'
                 font_size: 20
+
             Button:
-                on_release: app.root.current = 'Username'
+                on_release:
+                    app.root.current = 'Username'
+                    root.manager.transition.direction = "left"
                 text: 'Username'
                 font_size: 20
 
 <SubredditScreen>:
     name: 'Subreddit'
     BoxLayout:
-        orientation: 'vertical'
-        ScrollView:
-            size_hint_y: 15
-            Label:
-                id: sub_output
-                text: "Subreddit"
-                size_hint_y: None
-                size: self.texture_size
-                text_size: self.width, None
-                height: self.texture_size[1]
-        TextInput:
-            id: subreddit_input
-            hint_text: "Enter a subreddit"
-            size_hint_y: 1
-        Button:
-            id: submit
-            text: "Search"
-            on_release: root.get_subreddit_posts()
-        Button:
-            on_release: app.root.current = 'main'
-            text: 'back to the home screen'
-            font_size: 20
-            size_hint_y: 3
+        orientation: 'horizontal'
 
+        BoxLayout:
+            orientation: 'vertical'
+
+            ScrollView:
+                size_hint_y: 15
+                id: subreddit_post_scrollview
+                BoxLayout:
+                    id: subreddit_button_row
+                    orientation: 'vertical'
+
+                    Button:
+                        id: sub_post_1
+                        text: "hello"
+
+                    Button:
+                        id: sub_post_2
+                        text: "hello"
+                    Button:
+                        id: sub_post_3
+                        text: "hello"
+                    Button:
+                        id: sub_post_4
+                        text: "hello"
+                    Button:
+                        id: sub_post_5
+                        text: "hello"
+
+            TextInput:
+                id: subreddit_input
+                hint_text: "Enter a subreddit"
+                size_hint_y: 3
+
+            Button:
+                id: subreddit_submit
+                text: "Search"
+                on_press: root.get_links()
+
+
+            Button:
+                on_release:
+                    app.root.current = 'main'
+                    root.manager.transition.direction = "left"
+                text: 'back to the home screen'
+                font_size: 20
+                size_hint_y: 5
+                
 
 <UsernameScreen>:
     name: 'Username'
     BoxLayout:
-        orientation: 'vertical'
-        Label:
-            id: message_board
-            height: self.texture_size[1]
-            text: 'Username page'
-        Button:
-            on_release: app.root.current = 'main'
-            text: 'back to the home screen'
-            font_size: 50
+        orientation: 'horizontal'
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            ScrollView:
+                size_hint_y: 15
+                id: username_post_scrollview
+                BoxLayout:
+                    id: username_button_row
+                    orientation: 'vertical'
+
+                    Button:
+                        id: user_post_1
+                        text: "hello"
+
+                    Button:
+                        id: user_post_2
+                        text: "hello"
+                    Button:
+                        id: user_post_3
+                        text: "hello"
+                    Button:
+                        id: user_post_4
+                        text: "hello"
+                    Button:
+                        id: user_post_5
+                        text: "hello"
+
+            TextInput:
+                id: username_input
+                hint_text: "Enter a subreddit"
+                size_hint_y: 3
+
+            Button:
+                id: username_submit
+                text: "Search"
+                on_press: root.get_links()
+
+
+            Button:
+                on_release:
+                    app.root.current = 'main'
+                    root.manager.transition.direction = "right"
+                text: 'back to the home screen'
+                font_size: 20
+                size_hint_y: 5
