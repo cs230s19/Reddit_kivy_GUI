@@ -2,6 +2,7 @@ from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from subreddit import get_posts
+from username import get_redditor_info
 
 
 class MainScreen(Screen):
@@ -9,6 +10,7 @@ class MainScreen(Screen):
 
 
 class SubredditScreen(Screen):
+
     """
     Subreddit Screen
     When the search button is pressed, the titles of the 5 hottest posts on that subreddit are displayed
@@ -32,7 +34,10 @@ class SubredditScreen(Screen):
 
 
 class UsernameScreen(Screen):
-    pass
+    def get_userprofile(self):
+        userprofile = get_redditor_info(self.ids.username_input.text)
+
+        self.ids.userprofile_output.text = userprofile
 
 
 class ScreenManagement(ScreenManager):
