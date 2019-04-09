@@ -47,19 +47,27 @@ ScreenManagement:
                     Button:
                         id: sub_post_1
                         text: ""
+                        on_release: root.display_popup(0)
 
                     Button:
                         id: sub_post_2
                         text: ""
+                        on_release: root.display_popup(1)
+
                     Button:
                         id: sub_post_3
                         text: ""
+                        on_release: root.display_popup(2)
+
                     Button:
                         id: sub_post_4
                         text: ""
+                        on_release: root.display_popup(3)
+
                     Button:
                         id: sub_post_5
                         text: ""
+                        on_release: root.display_popup(4)
 
             TextInput:
                 id: subreddit_input
@@ -79,7 +87,6 @@ ScreenManagement:
                 text: 'back to the home screen'
                 font_size: 20
                 size_hint_y: 5
-                
 
 <UsernameScreen>:
     name: 'Username'
