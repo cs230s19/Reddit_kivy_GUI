@@ -31,103 +31,90 @@ ScreenManagement:
 
 <SubredditScreen>:
     name: 'Subreddit'
-    BoxLayout:
-        orientation: 'horizontal'
 
-        BoxLayout:
-            orientation: 'vertical'
+    FloatLayout:
+        id: subreddit_floatlayout
+        Button:
+            id: sub_post_1
+            text: ""
+            pos_hint: {'x': .25, 'top': 1}
+            size_hint: .5, .165
 
-            ScrollView:
-                size_hint_y: 15
-                id: subreddit_post_scrollview
-                BoxLayout:
-                    id: subreddit_button_row
-                    orientation: 'vertical'
+        Button:
+            id: sub_post_2
+            text: ""
+            pos_hint: {'x': .25, 'y': .68}
+            size_hint: .5, .165
 
-                    Button:
-                        id: sub_post_1
-                        text: ""
+        Button:
+            id: sub_post_3
+            text: ""
+            pos_hint: {'x': .25, 'y': .52}
+            size_hint: .5, .165
 
-                    Button:
-                        id: sub_post_2
-                        text: ""
-                    Button:
-                        id: sub_post_3
-                        text: ""
-                    Button:
-                        id: sub_post_4
-                        text: ""
-                    Button:
-                        id: sub_post_5
-                        text: ""
+        Button:
+            id: sub_post_4
+            text: ""
+            pos_hint: {'x': .25, 'y': .36}
+            size_hint: .5, .165
 
-            TextInput:
-                id: subreddit_input
-                hint_text: "Enter a subreddit"
-                size_hint_y: 3
+        Button:
+            id: sub_post_5
+            text: ""
+            pos_hint: {'x': .25, 'y': .2}
+            size_hint: .5, .165
 
-            Button:
-                id: subreddit_submit
-                text: "Search"
-                on_press: root.get_subreddit_posts()
+        TextInput:
+            id: subreddit_input
+            hint_text: "Enter a subreddit"
+            pos_hint: {'left': 1, 'bottom': 1}
+            size_hint: .4, .2
 
+        Button:
+            id: subreddit_submit
+            text: "Search"
+            on_press: root.get_subreddit_posts()
+            pos_hint: {'x': .4, 'bottom': 1}
+            size_hint: .3, .2
 
-            Button:
-                on_release:
-                    app.root.current = 'main'
-                    root.manager.transition.direction = "left"
-                text: 'back to the home screen'
-                font_size: 20
-                size_hint_y: 5
+        Button:
+            on_release:
+                app.root.current = 'main'
+                root.manager.transition.direction = "left"
+            text: '  back to the\n home screen'
+            font_size: 17
+            pos_hint: {'right': 1, 'bottom': 1}
+            size_hint: .3, .2
                 
 
 <UsernameScreen>:
     name: 'Username'
-    BoxLayout:
-        orientation: 'horizontal'
+    FloatLayout:
+        id: username_floatlayout
 
-        BoxLayout:
-            orientation: 'vertical'
+        Label:
+            id: user_karma
+            text_hint: 'This is the users karma'
+            pos_hint: {'x': 5, 'top': 1}
+            size_hint: .4, .2
 
-            ScrollView:
-                size_hint_y: 15
-                id: username_post_scrollview
-                BoxLayout:
-                    id: username_button_row
-                    orientation: 'vertical'
+        TextInput:
+            id: username_input
+            hint_text: "Enter a username"
+            pos_hint: {'x': .3, 'bottom': 1}
+            size_hint: .4, .2
 
-                    Button:
-                        id: user_post_1
-                        text: "hello"
+        Button:
+            id: username_submit
+            text: "Search"
+            pos_hint: {'right': 1, 'bottom': 1}
+            size_hint: .3, .2
 
-                    Button:
-                        id: user_post_2
-                        text: "hello"
-                    Button:
-                        id: user_post_3
-                        text: "hello"
-                    Button:
-                        id: user_post_4
-                        text: "hello"
-                    Button:
-                        id: user_post_5
-                        text: "hello"
-
-            TextInput:
-                id: username_input
-                hint_text: "Enter a subreddit"
-                size_hint_y: 3
-
-            Button:
-                id: username_submit
-                text: "Search"
-                on_press: root.get_links()
-
-
-            Button:
-                on_release:
-                    app.root.current = 'main'
-                    root.manager.transition.direction = "right"
-                text: 'back to the home screen'
-                font_size: 20
-                size_hint_y: 5
+        Button:
+            on_release:
+                app.root.current = 'main'
+                root.manager.transition.direction = "right"
+            text: ' back to the\nhome screen'
+            font_size: 17
+            pos_hint: {'left': 1, 'bottom': 1}
+            size_hint: .3, .2
