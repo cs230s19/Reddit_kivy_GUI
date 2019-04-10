@@ -14,12 +14,15 @@ def get_posts(subreddit_name):
     Gets the top 5 hottest posts from given subreddit not including stidkied posts
 
     :param subreddit_name: String from InputText containing name of subreddit
-    :return: List of 5 Submission objects representing the hottest posts on the subreddit - Does not include stickied
-        posts
+    :return: If posts are found: A list of submissions representing the posts
+            If no posts are found: None is returned
     """
     num_stickied = 0
     num_posts = 10
     post_list = []
+
+    if subreddit_name == "":
+        return None
 
     hot_posts = reddit.subreddit(subreddit_name).hot(limit=num_posts)
 
