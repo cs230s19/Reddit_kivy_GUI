@@ -97,8 +97,11 @@ ScreenManagement:
             height: self.texture_size[1]
             size_hint_y: 10
             size: self.texture_size
-            text_size: self.width, None
+            text_size: self.size
             height: self.texture_size[1]
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
         TextInput:
             id: username_input
             hint_text: "Enter a username"
