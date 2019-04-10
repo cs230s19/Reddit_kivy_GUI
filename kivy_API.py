@@ -68,10 +68,21 @@ class SubredditScreen(Screen):
 
 
 class UsernameScreen(Screen):
+    """
+    The UsernameScreen class extends the Screen class and creates
+    a new screen displaying a reddit user's profile.
+    """
     def get_userprofile(self):
-        userprofile = get_redditor_info(self.ids.username_input.text)
+        """
+        get_userprofile() function calls get_redditor_info function to
 
-        self.ids.userprofile_output.text = userprofile
+        :return:
+        """
+        userprofile = get_redditor_info(self.ids.username_input.text)
+        if userprofile is None:
+            self.ids.userprofile_output.text = "Error, user not found."
+        else:
+            self.ids.userprofile_output.text = userprofile
 
 
 class ScreenManagement(ScreenManager):
