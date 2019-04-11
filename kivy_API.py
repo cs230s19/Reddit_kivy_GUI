@@ -74,7 +74,7 @@ class UsernameScreen(Screen):
     """
     def get_userprofile(self):
         """
-        get_userprofile() function calls get_redditor_info function to
+        get_userprofile() function passes the username in the inputbox
 
         :return:
         """
